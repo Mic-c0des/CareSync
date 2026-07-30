@@ -28,13 +28,13 @@ export function Login() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4">
-      <div className="w-full max-w-sm rounded-3xl border border-ink/10 bg-white p-8 shadow-sm">
+    <div className="flex min-h-screen w-full items-center justify-center overflow-x-hidden px-3 py-4 sm:px-4">
+      <div className="mx-auto w-full max-w-sm rounded-3xl border border-ink/10 bg-white p-5 shadow-sm sm:p-8">
         <h1 className="font-display text-2xl font-semibold text-forest">
           {mode === 'signin' ? 'Welcome back' : 'Create your account'}
         </h1>
         <p className="mt-1 text-sm text-ink/60">
-          Track PCE hours and, location with ease!
+          Track PCE hours and locations with ease.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">

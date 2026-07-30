@@ -22,14 +22,16 @@ export function App() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden bg-sand/40">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/hours" element={<AddHours />} />
-        <Route path="/workplaces" element={<Workplaces />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <main className="mx-auto w-full max-w-5xl">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/hours" element={<AddHours />} />
+          <Route path="/workplaces" element={<Workplaces />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
     </div>
   )
 }

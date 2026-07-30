@@ -93,11 +93,11 @@ export function Workplaces() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-8">
+    <div className="mx-auto w-full max-w-2xl px-3 py-4 sm:px-4 sm:py-8">
       <h1 className="font-display text-2xl font-semibold text-forest">Workplaces</h1>
       <p className="mt-1 text-sm text-ink/60">The employers you've done PCE hours at.</p>
 
-      <form onSubmit={handleAdd} className="mt-6 flex flex-col gap-3 rounded-2xl border border-ink/10 bg-white p-4">
+      <form onSubmit={handleAdd} className="mt-6 flex flex-col gap-3 rounded-2xl border border-ink/10 bg-white p-4 sm:p-5">
         <div className="flex flex-col gap-3 sm:flex-row">
           <input
             placeholder="Employer name (e.g. Riverside Urgent Care)"
@@ -172,8 +172,8 @@ export function Workplaces() {
                 </div>
               </form>
             ) : (
-              <div className="flex items-center justify-between gap-3">
-                <div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div className="min-w-0">
                   <p className="font-medium text-ink">{w.name}</p>
                   {w.manager && <p className="text-sm text-ink/60">Manager: {w.manager}</p>}
                   {w.phone_number && <p className="text-sm text-ink/60">Phone: {w.phone_number}</p>}

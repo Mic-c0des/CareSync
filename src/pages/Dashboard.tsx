@@ -49,28 +49,28 @@ export function Dashboard() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-8">
+    <div className="mx-auto w-full max-w-2xl px-3 py-4 sm:px-4 sm:py-8">
       <h1 className="font-display text-2xl font-semibold text-forest">Your progress</h1>
       <p className="mt-1 text-sm text-ink/60">Total PCE hours logged toward your goal.</p>
 
-      <div className="mt-8 flex flex-col items-center rounded-3xl border border-ink/10 bg-white p-8">
+      <div className="mt-6 flex w-full flex-col items-center rounded-3xl border border-ink/10 bg-white p-4 sm:mt-8 sm:p-6 md:p-8">
         {loading ? (
           <p className="text-sm text-ink/50">Loading…</p>
         ) : (
-          <CircularProgress current={totalHours} goal={goal} />
+          <CircularProgress current={totalHours} goal={goal} size={180} />
         )}
 
         {editingGoal ? (
-          <form onSubmit={handleSaveGoal} className="mt-6 flex gap-2">
+          <form onSubmit={handleSaveGoal} className="mt-6 flex w-full flex-col gap-2 sm:flex-row sm:justify-center">
             <input
               type="number"
               min="1"
               step="1"
               value={goalInput}
               onChange={(e) => setGoalInput(e.target.value)}
-              className="w-28 rounded-xl border border-ink/15 px-3 py-2 text-center outline-none focus:border-forest"
+              className="w-full rounded-xl border border-ink/15 px-3 py-2 text-center outline-none focus:border-forest sm:w-28"
             />
-            <button type="submit" className="rounded-xl bg-forest px-4 py-2 font-medium text-sand hover:bg-forest/90">
+            <button type="submit" className="rounded-xl bg-forest px-4 py-2 font-medium text-sand hover:bg-forest/90 sm:self-start">
               Save
             </button>
           </form>
