@@ -7,10 +7,10 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg'],
+      includeAssets: ['favicon.png', 'AppIcon.png', 'icon-192.png', 'icon-512.png'],
       manifest: {
-        name: 'PCE Hours Tracker',
-        short_name: 'PCE Hours',
+        name: 'CareSync',
+        short_name: 'CareSync',
         description: 'Track PCE hours for PA school applications',
         theme_color: '#1d4e45',
         background_color: '#faf8f3',
