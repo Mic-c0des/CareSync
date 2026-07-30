@@ -52,7 +52,7 @@ export function AddHours() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-8">
+    <div className="mx-auto w-full max-w-2xl px-3 py-4 sm:px-4 sm:py-8">
       <h1 className="font-display text-2xl font-semibold text-forest">Log Hours</h1>
       <p className="mt-1 text-sm text-ink/60">Add a shift or session at one of your workplaces.</p>
 
@@ -61,7 +61,7 @@ export function AddHours() {
           Add a workplace first on the Workplaces tab, then come back here to log hours.
         </p>
       ) : (
-        <form onSubmit={handleAdd} className="mt-6 space-y-3 rounded-2xl border border-ink/10 bg-white p-4">
+        <form onSubmit={handleAdd} className="mt-6 space-y-3 rounded-2xl border border-ink/10 bg-white p-4 sm:p-5">
           <div className="grid gap-3 sm:grid-cols-2">
             <div>
               <label className="text-sm font-medium text-ink/80">Workplace</label>
@@ -113,8 +113,8 @@ export function AddHours() {
 
       <ul className="mt-6 space-y-2">
         {entries.map((entry) => (
-          <li key={entry.id} className="flex items-center justify-between rounded-2xl border border-ink/10 bg-white p-4">
-            <div>
+          <li key={entry.id} className="flex flex-col gap-3 rounded-2xl border border-ink/10 bg-white p-4 sm:flex-row sm:items-start sm:justify-between">
+            <div className="min-w-0">
               <p className="font-medium text-ink">
                 {entry.workplaces?.name ?? 'Unknown workplace'}: {entry.duration_hours} hrs
               </p>
@@ -127,7 +127,7 @@ export function AddHours() {
                 {entry.notes ? ` · ${entry.notes}` : ''}
               </p>
             </div>
-            <button onClick={() => handleDelete(entry.id)} className="text-sm text-clay hover:underline">
+            <button onClick={() => handleDelete(entry.id)} className="self-start text-sm text-clay hover:underline">
               Remove
             </button>
           </li>

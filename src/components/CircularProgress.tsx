@@ -5,7 +5,7 @@ interface Props {
   strokeWidth?: number
 }
 
-export function CircularProgress({ current, goal, size = 220, strokeWidth = 18 }: Props) {
+export function CircularProgress({ current, goal, size = 180, strokeWidth = 18 }: Props) {
   const safeGoal = goal > 0 ? goal : 1
   const pct = Math.min(current / safeGoal, 1)
   const radius = (size - strokeWidth) / 2
@@ -36,12 +36,12 @@ export function CircularProgress({ current, goal, size = 220, strokeWidth = 18 }
           style={{ transition: 'stroke-dashoffset 0.6s ease' }}
         />
       </svg>
-      <div className="absolute flex flex-col items-center">
-        <span className="font-display text-3xl font-semibold text-forest">
+      <div className="absolute flex flex-col items-center px-2 text-center">
+        <span className="font-display text-2xl font-semibold text-forest sm:text-3xl">
           {current.toFixed(1)}
         </span>
-        <span className="text-sm text-ink/60">of {safeGoal.toFixed(0)} hrs</span>
-        <span className="mt-1 text-xs font-medium text-clay">{Math.round(pct * 100)}%</span>
+        <span className="text-xs text-ink/60 sm:text-sm">of {safeGoal.toFixed(0)} hrs</span>
+        <span className="mt-1 text-[11px] font-medium text-clay sm:text-xs">{Math.round(pct * 100)}%</span>
       </div>
     </div>
   )
