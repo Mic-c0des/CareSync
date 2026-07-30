@@ -34,7 +34,7 @@ export function Login() {
           {mode === 'signin' ? 'Welcome back' : 'Create your account'}
         </h1>
         <p className="mt-1 text-sm text-ink/60">
-          Track PCE hours toward your PA school goal.
+          Track PCE hours and, location with ease!
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
