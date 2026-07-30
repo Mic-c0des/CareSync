@@ -22,7 +22,7 @@ export function Login() {
     if (result.error) {
       setError(result.error)
     } else if (mode === 'signup') {
-      setNotice('Account created — check your email to confirm, then sign in.')
+      setNotice('Account created, please check your email to confirm, then sign in.')
       setMode('signin')
     }
   }
