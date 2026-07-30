@@ -3,6 +3,8 @@ export interface Workplace {
   user_id: string
   name: string
   notes: string | null
+  manager: string | null
+  phone_number: string | null
   created_at: string
 }
 
