@@ -116,7 +116,7 @@ export function AddHours() {
           <li key={entry.id} className="flex items-center justify-between rounded-2xl border border-ink/10 bg-white p-4">
             <div>
               <p className="font-medium text-ink">
-                {entry.workplaces?.name ?? 'Unknown workplace'} — {entry.duration_hours} hrs
+                {entry.workplaces?.name ?? 'Unknown workplace'}: {entry.duration_hours} hrs
               </p>
               <p className="text-sm text-ink/50">
                 {new Date(entry.entry_date + 'T00:00:00').toLocaleDateString(undefined, {
