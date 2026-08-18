@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react'
 import { useAuth } from '../context/AuthContext'
 
 export function Login() {
-  const { signIn, signUp } = useAuth()
+  const { signIn, signUp, resetPassword } = useAuth()
   const [mode, setMode] = useState<'signin' | 'signup'>('signin')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -82,6 +82,26 @@ export function Login() {
         >
           {mode === 'signin' ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
         </button>
+        {mode === 'signin' && (
+          <div className="mt-2 text-center">
+            <button
+              onClick={async () => {
+                setError(null)
+                setNotice(null)
+                if (!email) return setError('Enter your email to reset password')
+                setBusy(true)
+                const res = await resetPassword(email)
+                setBusy(false)
+                if (res.error) setError(res.error)
+                else setNotice('If that email exists, a password reset link has been sent.')
+              }}
+              className="text-sm text-ink/60 hover:text-forest"
+              disabled={busy}
+            >
+              Forgot password?
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )
