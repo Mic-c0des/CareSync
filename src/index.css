@@ -8,6 +8,9 @@ html, body, #root {
 }
 
 input[type='date'] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
   min-width: 0;
   width: 100%;
   max-width: 100%;
