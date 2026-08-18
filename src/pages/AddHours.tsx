@@ -63,25 +63,25 @@ export function AddHours() {
       ) : (
         <form onSubmit={handleAdd} className="mt-6 space-y-3 rounded-2xl border border-ink/10 bg-white p-4 sm:p-5">
           <div className="grid gap-3 sm:grid-cols-2">
-            <div>
+            <div className="min-w-0">
               <label className="text-sm font-medium text-ink/80">Workplace</label>
               <select
                 value={workplaceId}
                 onChange={(e) => setWorkplaceId(e.target.value)}
-                className="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 outline-none focus:border-forest"
+                className="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 outline-none focus:border-forest text-sm"
               >
                 {workplaces.map((w) => (
                   <option key={w.id} value={w.id}>{w.name}</option>
                 ))}
               </select>
             </div>
-            <div>
+            <div className="min-w-0">
               <label className="text-sm font-medium text-ink/80">Date</label>
               <input
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 outline-none focus:border-forest"
+                className="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 outline-none focus:border-forest text-sm"
               />
             </div>
           </div>
