@@ -1,7 +1,6 @@
 interface ImportMetaEnv {
-  readonly VITE_SUPABASE_URL: string
-  readonly VITE_SUPABASE_ANON_KEY: string
-  // add more env vars if needed
+  readonly VITE_NEON_AUTH_URL: string
+  readonly VITE_NEON_DATA_API_URL: string
   readonly [key: string]: string | undefined
 }
 

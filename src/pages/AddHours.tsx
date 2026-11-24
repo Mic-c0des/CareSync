@@ -1,5 +1,5 @@
 import { useEffect, useState, FormEvent } from 'react'
-import { supabase } from '../supabaseClient'
+import { neon } from '../neonClient'
 import { useAuth } from '../context/AuthContext'
 import type { Workplace, HourEntry } from '../types'
 
@@ -14,8 +14,8 @@ export function AddHours() {
 
   async function load() {
     const [{ data: wp }, { data: en }] = await Promise.all([
-      supabase.from('workplaces').select('*').order('name'),
-      supabase
+      neon.from('workplaces').select('*').order('name'),
+      neon
         .from('hour_entries')
         .select('*, workplaces(name)')
         .order('entry_date', { ascending: false })
@@ -34,7 +34,7 @@ export function AddHours() {
     const hrs = parseFloat(duration)
     if (!workplaceId || !hrs || hrs <= 0 || !session) return
 
-    await supabase.from('hour_entries').insert({
+    await neon.from('hour_entries').insert({
       workplace_id: workplaceId,
       entry_date: date,
       duration_hours: hrs,
@@ -47,7 +47,7 @@ export function AddHours() {
   }
 
   async function handleDelete(id: string) {
-    await supabase.from('hour_entries').delete().eq('id', id)
+    await neon.from('hour_entries').delete().eq('id', id)
     load()
   }
 

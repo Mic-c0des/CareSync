@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react'
 import { useAuth } from '../context/AuthContext'
 
 export function Login() {
-  const { signIn, signUp, resetPassword } = useAuth()
+  const { signIn, signUp, resetPassword, authError } = useAuth()
   const [mode, setMode] = useState<'signin' | 'signup'>('signin')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -22,7 +22,7 @@ export function Login() {
     if (result.error) {
       setError(result.error)
     } else if (mode === 'signup') {
-      setNotice('Account created, please check your email to confirm, then sign in.')
+      setNotice('Account created. You can now sign in.')
       setMode('signin')
     }
   }
@@ -36,6 +36,8 @@ export function Login() {
         <p className="mt-1 text-sm text-ink/60">
           Track PCE hours and locations with ease.
         </p>
+
+        {authError && <p className="mt-3 text-sm text-red-600">{authError}</p>}
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div>
@@ -53,7 +55,7 @@ export function Login() {
             <input
               type="password"
               required
-              minLength={6}
+              minLength={8}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="mt-1 w-full rounded-xl border border-ink/15 px-3 py-2 outline-none focus:border-forest"

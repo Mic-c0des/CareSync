@@ -1,5 +1,5 @@
 import { useEffect, useState, FormEvent } from 'react'
-import { supabase } from '../supabaseClient'
+import { neon } from '../neonClient'
 import { useAuth } from '../context/AuthContext'
 import type { Workplace } from '../types'
 
@@ -19,7 +19,7 @@ export function Workplaces() {
 
   async function load() {
     setLoading(true)
-    const { data } = await supabase
+    const { data } = await neon
       .from('workplaces')
       .select('*')
       .order('created_at', { ascending: false })
@@ -34,7 +34,7 @@ export function Workplaces() {
   async function handleAdd(e: FormEvent) {
     e.preventDefault()
     if (!name.trim() || !session) return
-    await supabase.from('workplaces').insert({
+    await neon.from('workplaces').insert({
       name: name.trim(),
       notes: notes.trim() || null,
       manager: manager.trim() || null,
@@ -60,7 +60,7 @@ export function Workplaces() {
     e.preventDefault()
     if (!editName.trim() || !session) return
 
-    await supabase
+    await neon
       .from('workplaces')
       .update({
         name: editName.trim(),
@@ -88,7 +88,7 @@ export function Workplaces() {
   }
 
   async function handleDelete(id: string) {
-    await supabase.from('workplaces').delete().eq('id', id)
+    await neon.from('workplaces').delete().eq('id', id)
     load()
   }
 

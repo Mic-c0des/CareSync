@@ -1,5 +1,5 @@
 import { useEffect, useState, FormEvent } from 'react'
-import { supabase } from '../supabaseClient'
+import { neon } from '../neonClient'
 import { useAuth } from '../context/AuthContext'
 import { CircularProgress } from '../components/CircularProgress'
 
@@ -16,8 +16,8 @@ export function Dashboard() {
     setLoading(true)
 
     const [{ data: entries }, { data: goalRow }] = await Promise.all([
-      supabase.from('hour_entries').select('duration_hours'),
-      supabase.from('goals').select('*').eq('user_id', session.user.id).maybeSingle()
+      neon.from('hour_entries').select('duration_hours'),
+      neon.from('goals').select('*').eq('user_id', session.user.id).maybeSingle()
     ])
 
     const sum = (entries ?? []).reduce((acc, e) => acc + Number(e.duration_hours), 0)
@@ -39,7 +39,7 @@ export function Dashboard() {
     const value = parseFloat(goalInput)
     if (!value || value <= 0 || !session) return
 
-    await supabase.from('goals').upsert({
+    await neon.from('goals').upsert({
       user_id: session.user.id,
       target_hours: value,
       updated_at: new Date().toISOString()

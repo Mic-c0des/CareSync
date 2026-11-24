@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/env.d.ts","./src/main.tsx","./src/neonclient.ts","./src/types.ts","./src/components/circularprogress.tsx","./src/components/navbar.tsx","./src/context/authcontext.tsx","./src/pages/addhours.tsx","./src/pages/dashboard.tsx","./src/pages/login.tsx","./src/pages/workplaces.tsx"],"version":"5.9.3"}
